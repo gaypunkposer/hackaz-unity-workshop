@@ -20,11 +20,13 @@ function initialize()
         help: true,
         defaultTiming: 120,
         multiplex: {
-
+            secret: '15789397506092044303',
+            id: 'd8abcc55047f4407',
+            url: 'https://reveal.gaypunkposer.dev/'
         }
     });
 
-    //require("reveal.js/plugin/multiplex/master.js");
+    require("reveal.js/plugin/multiplex/master.js");
     require("reveal.js/plugin/notes/notes.js");
     require("reveal-code-focus");
 
