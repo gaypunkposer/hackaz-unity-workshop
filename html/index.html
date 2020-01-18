@@ -49,9 +49,9 @@
                         <h2>Made with Unity</h2>
                     </section>
                 </section>
-                <section data-menu-title="Beginner">
+                <section data-menu-title="Very Beginning">
                     <section>
-                        <h2>Beginner</h2>
+                        <h2>Very Beginning</h2>
                     </section>
                     <section>
                         <h2>Importing files</h2>
@@ -62,8 +62,150 @@
                         <h2>Opening the project</h2>
                         <video src="../media/import.mp4" autoplay="true" loop="true"></video>
                     </section>
+                </section>
+                <section data-menu-title="Editor UI">
                     <section>
-                        <h2>The UI</h2>
+                        <h2>Editor UI</h2>
+                    </section>
+                    <section>
+                        <h2>Hierarchy Panel</h2>
+                    </section>
+                    <section>
+                        <h2>Project Panel</h2>
+                    </section>
+                    <section>
+                        <h2>Inspector Panel</h2>
+                    </section>
+                    <section>
+                        <h2>Scene View</h2>
+                    </section>
+                    <section>
+                        <h2>Game View</h2>
+                    </section>
+                </section>
+                <section data-menu-title="Building a Character">
+                    <section>
+                        <h2>Building Ellen</h2>
+                    </section>
+                    <section>
+                        <h2>Placing Ellen</h2>
+                    </section>
+                    <section>
+                        <h2>Moving Ellen</h2>
+                    </section>
+                    <section>
+                        <h2>Animating Ellen</h2>
+                    </section>
+                    <section>
+                        <h2>Moving the camera</h2>
+                    </section>
+                </section>
+                <section data-menu-title="Writing code">
+                    <section>
+                        <h2>Writing code</h2>
+                    </section>
+                    <section>
+                        <h2>Creating a script</h2>
+                    </section>
+                    <section>
+                        <h2>Start and Update</h2>
+                        <pre><code class="cs hljs">public class Gun : MonoBehaviour
+{
+    void Start()
+    {
+        //Runs when the game starts                             
+    }
+
+    void Update()
+    {
+        //Runs every time the game updates (every frame)
+    }
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>Variables</h2>
+                        <pre><code class="cs hljs">public class Gun : MonoBehaviour
+{
+    //Bullet object to shoot
+    public GameObject BulletPrefab;
+    //Where to create the bullet
+    public Transform BulletSpawnPoint;
+    //How long should we wait between shots?
+    public float FireDelay;
+    //How hard should the bullet be shot?
+    public float FireForce;
+
+    //Keep track of time between bullets
+    private float _timer;
+//...</code></pre>
+                    </section>
+                    <section>
+                        <h2>GetButton</h2>
+                        <pre><code class="cs hljs">//...
+void Update()
+{
+    //If timer is not zero, subtract until zero
+    _timer = (_timer > 0) ? _timer - Time.deltaTime : 0;
+    if (Input.GetButton("Fire1") && _timer > 0)
+    {
+        //Reset the timer to give pause between shots
+        _timer = FireRate;
+        //Fire the bullet
+        Fire();
+    }
+}</code></pre>
+                    </section>
+                    <section>
+                        <h2>Instantiate</h2>
+                        <pre><code class="cs hljs">//...
+void Fire()
+{
+    //Where to create the bullet
+    Vector3 spawnPoint = BulletSpawnPoint.position;
+    //What direction to send the bullet
+    Vector3 direction = BulletSpawnPoint.forward;
+
+    //The new bullet
+    GameObject newBullet = Instantiate(BulletPrefab, 
+        spawnPoint, Quaternion.identity) as GameObject;
+//...
+</code></pre>
+                    </section>
+                    <section>
+                        <h2>GetComponent</h2>
+                        <pre><code class="cs hljs">//...
+    Rigidbody bulletBody = newBullet.GetComponent&lt;Rigidbody&gt;();
+//...</code></pre>
+                    </section>
+                    <section>
+                        <h2>AddForce</h2>
+                        <pre><code class="cs hljs">//...
+    bulletBody.AddForce(direction * FireForce);
+}
+//Fire() done!</code></pre>
+                    </section>
+                </section>
+                <section data-menu-title="Cleanup">
+                    <section>
+                        <h2>Prefabs</h2>
+                    </section>
+                    <section>
+                        <h2>Things to shoot at</h2>
+                    </section>
+                    <section>
+                        <h2>Scenes</h2>
+                    </section>
+                    <section>
+                        <h2>ProBuilder</h2>
+                    </section>
+                    <section>
+                        <h2>Exporting</h2>
+                    </section>
+                    <section>
+                        <h2>Tweaking numbers</h2>
+                    </section>
+                    <section>
+                        <h2>Fun!</h2>
                     </section>
                 </section>
             </div>
