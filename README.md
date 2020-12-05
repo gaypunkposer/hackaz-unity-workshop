@@ -1,3 +1,3 @@
 # hackaz-unity-workshop
 
-Files created to be used with a Unity workshop, designed for complete beginners.
+A web presentation used during the HackAZ 2020 Unity workshop
